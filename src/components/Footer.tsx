@@ -1,0 +1,119 @@
+import { motion } from 'framer-motion';
+import { Instagram, Facebook, Phone, Mail } from 'lucide-react';
+import logo from '@/assets/logo-mmovi.png';
+import { Link } from 'react-router-dom';
+
+const marqueeText = '• MEJOR PRECIO • SEGURIDAD • CONFIANZA • MMOVI • MEJOR PRECIO • SEGURIDAD • CONFIANZA • MMOVI ';
+
+const Footer = () => {
+  return (
+    <footer className="bg-primary overflow-hidden">
+      {/* Marquee */}
+      <div className="marquee-container py-6 border-b border-white/20">
+        <motion.div
+          className="marquee-content font-heading text-4xl md:text-6xl font-bold text-white/90 uppercase"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        >
+          {marqueeText}
+          {marqueeText}
+        </motion.div>
+      </div>
+
+      {/* Main Footer Content */}
+      <div className="container py-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Logo & Description */}
+          <div className="lg:col-span-2">
+            <img src={logo} alt="MMovi Transportes" className="h-12 brightness-0 invert" />
+            <p className="mt-6 text-white/80 font-body max-w-md">
+              Somos tu aliado en mudanzas y logística. Con más de 10 años de
+              experiencia, nos movemos por ti.
+            </p>
+            <div className="flex gap-4 mt-6">
+              <a
+                href="https://instagram.com/mmovitransportes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://facebook.com/mmovitransportes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-heading font-bold text-white uppercase tracking-wider mb-6">
+              Navegación
+            </h4>
+            <nav className="space-y-3">
+              <Link to="/" className="block text-white/80 hover:text-white transition-colors font-body">
+                Inicio
+              </Link>
+              <Link to="/hogar" className="block text-white/80 hover:text-white transition-colors font-body">
+                Hogar
+              </Link>
+              <Link to="/empresas" className="block text-white/80 hover:text-white transition-colors font-body">
+                Empresas
+              </Link>
+              <Link to="/nosotros" className="block text-white/80 hover:text-white transition-colors font-body">
+                Nosotros
+              </Link>
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-heading font-bold text-white uppercase tracking-wider mb-6">
+              Contacto
+            </h4>
+            <div className="space-y-4">
+              <a
+                href="tel:+56963506070"
+                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors font-body"
+              >
+                <Phone className="w-5 h-5" />
+                +56 9 6350 6070
+              </a>
+              <a
+                href="mailto:transportesmmovi@gmail.com"
+                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors font-body"
+              >
+                <Mail className="w-5 h-5" />
+                transportesmmovi@gmail.com
+              </a>
+            </div>
+
+            <a
+              href="#cotizar"
+              className="btn-white mt-8 text-sm py-3 px-6"
+            >
+              Cotizar Ahora
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/60 text-sm font-body">
+            © 2024 MMovi Transportes. Todos los derechos reservados.
+          </p>
+          <p className="text-white/60 text-sm font-body">
+            Diseñado con pasión en Chile
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
