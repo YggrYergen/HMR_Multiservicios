@@ -7,9 +7,14 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 1.0;
+      // Vital for mobile autoplay
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+      videoRef.current.setAttribute('playsinline', 'true');
+      videoRef.current.setAttribute('muted', 'true');
+
       videoRef.current.play().catch(error => {
-        console.log("Autoplay prevented by browser policy:", error);
+        console.log("Autoplay prevented:", error);
       });
     }
   }, []);
@@ -24,7 +29,9 @@ const HeroSection = () => {
           autoPlay
           loop
           muted
-          playsInline
+          playsInline={true}
+          // @ts-ignore
+          defaultMuted={true}
           className="w-full h-full object-cover in-view"
         >
           <source src="/fondo_hero_inicio.mp4" type="video/mp4" />
