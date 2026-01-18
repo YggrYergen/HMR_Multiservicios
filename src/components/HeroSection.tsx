@@ -1,21 +1,33 @@
+import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-truck.jpg';
-import heroVideo from '@/assets/fondo_hero_inicio.mp4';
 
 const HeroSection = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0;
+      videoRef.current.play().catch(error => {
+        console.log("Autoplay prevented by browser policy:", error);
+      });
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video with Grayscale */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/70 via-accent/50 to-accent/80 z-10" />
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           className="w-full h-full object-cover in-view"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="/fondo_hero_inicio.mp4" type="video/mp4" />
           {/* Fallback image if video fails or is missing */}
           <img src={heroImage} alt="HMR Taller" className="w-full h-full object-cover" />
         </video>
