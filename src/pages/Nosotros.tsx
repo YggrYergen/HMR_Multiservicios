@@ -4,7 +4,13 @@ import { ChevronRight, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import heroTruck from '@/assets/hero-truck.jpg'; // Placeholder
+import exterior1 from '@/assets/exterior-1.jpg';
+import exterior2 from '@/assets/exterior-2.jpg';
+import taller1 from '@/assets/taller-1.jpg';
+import torno1 from '@/assets/torno-1.jpg';
+import enderezadora from '@/assets/enderezadora-neumaticos.jpg';
+
+const sliderImages = [exterior1, exterior2, taller1, torno1, enderezadora, exterior1]; // Placeholder
 
 const tips = [
   {
@@ -121,13 +127,13 @@ const NosotrosPage = () => {
             animate={{ x: [0, -300] }}
             transition={{ repeat: Infinity, duration: 15, ease: 'linear' }}
           >
-            {[1, 2, 3, 4, 5, 6].map((_, index) => (
+            {sliderImages.map((img, index) => (
               <div
                 key={index}
                 className="min-w-[400px] aspect-video overflow-hidden"
               >
                 <img
-                  src={heroTruck}
+                  src={img}
                   alt={`Taller HMR ${index + 1}`}
                   className="w-full h-full object-cover img-grayscale hover:grayscale-0 transition-all duration-500"
                 />

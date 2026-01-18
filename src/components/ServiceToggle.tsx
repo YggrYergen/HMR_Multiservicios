@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wrench, Settings, Zap, Disc, Gauge, Hammer, ChevronRight } from 'lucide-react';
-import mecanicaImage from '@/assets/couple-moving.jpg'; // Placeholder for Mecánica
-import torneriaImage from '@/assets/warehouse-logistics.jpg'; // Placeholder for Tornería
+import mecanicaImage from '@/assets/taller-1.jpg';
+import torneriaImage from '@/assets/torno-1.jpg';
 
 const mecanicaServices = [
   {

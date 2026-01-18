@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AgendaModal from '@/components/AgendaModal';
-import motoImage from '@/assets/hero-truck.jpg'; // Placeholder
+import motoImage from '@/assets/taller-1.jpg';
 
 const services = [
     {

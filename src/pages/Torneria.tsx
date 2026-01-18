@@ -4,7 +4,7 @@ import { Settings, Ruler, Disc, FileText, Send, CheckCircle, Hammer } from 'luci
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import tallerImage from '@/assets/warehouse-logistics.jpg'; // Placeholder
+import tallerImage from '@/assets/enderezadora-neumaticos.jpg';
 
 const benefits = [
     {
