@@ -4,61 +4,61 @@ import { ChevronRight, X } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import heroTruck from '@/assets/hero-truck.jpg';
+import heroTruck from '@/assets/hero-truck.jpg'; // Placeholder
 
 const tips = [
   {
     id: 1,
-    title: 'Consejos para embalar',
-    preview: 'Aprende a proteger tus pertenencias correctamente.',
+    title: 'Mantenimiento Preventivo',
+    preview: 'Claves para alargar la vida útil de tu moto.',
     content: `
-      <h3>1. Usa cajas del tamaño correcto</h3>
-      <p>Las cajas pequeñas son para objetos pesados como libros. Las grandes para ropa y objetos ligeros.</p>
+      <h3>1. Revisa el aceite regularmente</h3>
+      <p>El aceite es la sangre del motor. Revisa el nivel cada 500km y cámbialo según el manual.</p>
       
-      <h3>2. No dejes espacios vacíos</h3>
-      <p>Rellena con papel o ropa los huecos para evitar que las cosas se muevan.</p>
+      <h3>2. Cadena lubricada y tensada</h3>
+      <p>Una cadena seca o suelta desgasta la transmisión prematuramente. Límpiala y lúbricala cada 500-1000km.</p>
       
-      <h3>3. Etiqueta todo</h3>
-      <p>Escribe el contenido y la habitación de destino en cada caja. Te lo agradecerás después.</p>
+      <h3>3. Presión de neumáticos</h3>
+      <p>Neumáticos con baja presión afectan la estabilidad y el consumo. Revísalos en frío semanalmente.</p>
       
-      <h3>4. Embala por habitación</h3>
-      <p>Mantén juntas las cosas de cada habitación para facilitar el desempaque.</p>
+      <h3>4. Filtro de aire limpio</h3>
+      <p>Un filtro sucio ahoga el motor. Límpialo o cámbialo periódicamente para mantener la potencia.</p>
     `,
   },
   {
     id: 2,
-    title: 'Cuida tus objetos frágiles',
-    preview: 'Tips para que lleguen intactos a tu nuevo hogar.',
+    title: 'Rodaje de Motor Nuevo',
+    preview: 'Cómo asentar correctamente un motor reparado.',
     content: `
-      <h3>1. Envuelve individualmente</h3>
-      <p>Cada objeto frágil debe ir envuelto en papel o plástico de burbujas.</p>
+      <h3>1. Varía las revoluciones</h3>
+      <p>No mantengas una velocidad constante por mucho tiempo. Alterna las RPM sin forzar el motor.</p>
       
-      <h3>2. Usa divisores</h3>
-      <p>Para vasos y copas, usa divisores de cartón o envuelve cada uno en papel periódico.</p>
+      <h3>2. Calienta el motor</h3>
+      <p>Deja que el motor tome temperatura antes de exigirle. El aceite frío no lubrica igual.</p>
       
-      <h3>3. Marca las cajas</h3>
-      <p>Escribe "FRÁGIL" en todos los lados de la caja con letra grande y clara.</p>
+      <h3>3. Evita la zona roja</h3>
+      <p>Durante los primeros 1000km, no lleves el motor al límite de revoluciones.</p>
       
-      <h3>4. Refuerza el fondo</h3>
-      <p>Pon una capa de papel arrugado o ropa en el fondo de la caja como amortiguador.</p>
+      <h3>4. Primer cambio de aceite</h3>
+      <p>Es vital cambiar el aceite tras el rodaje para eliminar partículas metálicas del asentamiento.</p>
     `,
   },
   {
     id: 3,
-    title: 'Qué hacer el día de la mudanza',
-    preview: 'Checklist para que todo salga perfecto.',
+    title: 'Tornería: Precisión es clave',
+    preview: 'Por qué elegir piezas a medida.',
     content: `
-      <h3>1. Desayuna bien</h3>
-      <p>Vas a necesitar energía. Come algo sustancioso antes de empezar.</p>
+      <h3>1. Ajuste perfecto</h3>
+      <p>Las piezas fabricadas en torno se ajustan a la milésima, mejorando el rendimiento mecánico.</p>
       
-      <h3>2. Ten todo empacado</h3>
-      <p>Idealmente, todo debe estar en cajas antes de que llegue el equipo de mudanza.</p>
+      <h3>2. Materiales superiores</h3>
+      <p>Podemos fabricar piezas en aceros de mayor dureza que los originales para mayor durabilidad.</p>
       
-      <h3>3. Deja un kit de primera noche</h3>
-      <p>Ropa de cama, toallas, artículos de aseo y algo para comer. Lo necesitarás.</p>
+      <h3>3. Recuperación de piezas</h3>
+      <p>Muchas veces es más económico y rápido rectificar una pieza original que importar una nueva.</p>
       
-      <h3>4. Haz una última revisión</h3>
-      <p>Revisa closets, cajones y bajo las camas antes de irte.</p>
+      <h3>4. Soluciones personalizadas</h3>
+      <p>Fabricamos bujes, ejes y soportes adaptados a modificaciones específicas de tu moto.</p>
     `,
   },
 ];
@@ -80,12 +80,12 @@ const NosotrosPage = () => {
               transition={{ duration: 0.8 }}
             >
               <p className="text-2xl md:text-3xl lg:text-4xl font-body text-muted-foreground leading-relaxed">
-                No solo transportamos cosas.
+                No solo reparamos máquinas.
               </p>
               <h1 className="text-hero text-foreground mt-6">
-                Cuidamos
+                Recuperamos
                 <br />
-                historias
+                potencia
               </h1>
               <p className="text-2xl md:text-3xl lg:text-4xl font-body text-muted-foreground leading-relaxed mt-8">
                 Porque nosotros{' '}
@@ -94,24 +94,24 @@ const NosotrosPage = () => {
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
                 >
-                  SÍ
+                  VIVIMOS
                 </motion.span>
-                {' '}cuidamos lo tuyo.
+                {' '}la mecánica igual que tú.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* La Flota */}
+        {/* La Flota (Now El Taller) */}
         <section className="py-24 bg-accent overflow-hidden">
           <div className="container mb-12">
             <motion.h2
               className="text-display text-white text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
-              Nuestra Flota
+              Nuestro Taller
             </motion.h2>
           </div>
 
@@ -128,7 +128,7 @@ const NosotrosPage = () => {
               >
                 <img
                   src={heroTruck}
-                  alt={`Camión MMovi ${index + 1}`}
+                  alt={`Taller HMR ${index + 1}`}
                   className="w-full h-full object-cover img-grayscale hover:grayscale-0 transition-all duration-500"
                 />
               </div>
@@ -143,9 +143,9 @@ const NosotrosPage = () => {
               className="text-display text-foreground text-center mb-16"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
-              Tips para tu Mudanza
+              Tips HMR
             </motion.h2>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -155,7 +155,7 @@ const NosotrosPage = () => {
                   className="card-industrial p-6 cursor-pointer group"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setExpandedTip(tip.id)}
                   whileHover={{ y: -5 }}

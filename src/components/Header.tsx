@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '@/assets/logo-mmovi.png';
+import logo from '@/assets/logo-hmr.png';
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
-  { href: '/hogar', label: 'Hogar' },
-  { href: '/empresas', label: 'Empresas' },
+  { href: '/mecanica', label: 'Mecánica' },
+  { href: '/torneria', label: 'Tornería' },
   { href: '/nosotros', label: 'Nosotros' },
 ];
 
@@ -40,9 +40,8 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-card' : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-card' : 'bg-transparent'
+          }`}
       >
         <div className="container flex items-center justify-between h-20">
           <Link to="/" className="relative z-10">
@@ -55,15 +54,14 @@ const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className={`font-heading font-semibold uppercase tracking-wider text-sm transition-colors duration-300 hover:text-primary ${
-                  location.pathname === link.href ? 'text-primary' : isScrolled ? 'text-foreground' : 'text-foreground'
-                }`}
+                className={`font-heading font-semibold uppercase tracking-wider text-sm transition-colors duration-300 hover:text-primary ${location.pathname === link.href ? 'text-primary' : isScrolled ? 'text-foreground' : 'text-foreground'
+                  }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/#cotizar" className="btn-primary text-sm py-3 px-6">
-              Cotizar
+              Agendar
             </Link>
           </nav>
 
@@ -114,7 +112,7 @@ const Header = () => {
                 transition={{ delay: 0.5 }}
               >
                 <Link to="/#cotizar" className="btn-white mt-8">
-                  Cotizar Ahora
+                  Agendar Hora
                 </Link>
               </motion.div>
             </nav>

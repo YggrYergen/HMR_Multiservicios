@@ -1,50 +1,50 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Building2, Truck, Package, Clock, Handshake, MapPin, Calendar } from 'lucide-react';
-import coupleImage from '@/assets/couple-moving.jpg';
-import warehouseImage from '@/assets/warehouse-logistics.jpg';
+import { Wrench, Settings, Zap, Disc, Gauge, Hammer, ChevronRight } from 'lucide-react';
+import mecanicaImage from '@/assets/couple-moving.jpg'; // Placeholder for Mecánica
+import torneriaImage from '@/assets/warehouse-logistics.jpg'; // Placeholder for Tornería
 
-const hogarServices = [
+const mecanicaServices = [
   {
-    icon: Home,
-    title: 'Mudanzas Casas',
-    description: 'Trasladamos todo tu hogar con cuidado profesional.',
+    icon: Wrench,
+    title: 'Mantención General',
+    description: 'Cambio de aceite, filtros, frenos y transmisión.',
   },
   {
-    icon: Package,
-    title: 'Transporte Mobiliario',
-    description: 'Muebles y electrodomésticos seguros.',
+    icon: Gauge,
+    title: 'Ajuste de Motor',
+    description: 'Reparación completa y rectificado de motores.',
   },
   {
-    icon: Clock,
-    title: 'Flete Express',
-    description: 'Envíos rápidos el mismo día.',
+    icon: Zap,
+    title: 'Sistema Eléctrico',
+    description: 'Diagnóstico y reparación de fallas eléctricas.',
   },
 ];
 
-const empresaServices = [
+const torneriaServices = [
   {
-    icon: Building2,
-    title: 'Logística',
-    description: 'Soluciones de distribución para tu negocio.',
+    icon: Disc,
+    title: 'Rectificado Llantas',
+    description: 'Enderezado y reparación de llantas de aleación.',
   },
   {
-    icon: MapPin,
-    title: 'Retail Punto a Punto',
-    description: 'Entrega directa a tus clientes.',
+    icon: Settings,
+    title: 'Piezas a Medida',
+    description: 'Fabricación y torneado de piezas especiales.',
   },
   {
-    icon: Handshake,
-    title: 'Convenios',
-    description: 'Planes especiales para empresas.',
+    icon: Hammer,
+    title: 'Soldadura TIG/MIG',
+    description: 'Soldadura de aluminio, acero inox y fierro.',
   },
 ];
 
 const ServiceToggle = () => {
-  const [activeTab, setActiveTab] = useState<'hogar' | 'empresas'>('hogar');
+  const [activeTab, setActiveTab] = useState<'mecanica' | 'torneria'>('mecanica');
 
-  const currentServices = activeTab === 'hogar' ? hogarServices : empresaServices;
-  const currentImage = activeTab === 'hogar' ? coupleImage : warehouseImage;
+  const currentServices = activeTab === 'mecanica' ? mecanicaServices : torneriaServices;
+  const currentImage = activeTab === 'mecanica' ? mecanicaImage : torneriaImage;
 
   return (
     <section id="servicios" className="py-24 bg-background">
@@ -54,11 +54,12 @@ const ServiceToggle = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
         >
           <h2 className="text-display text-foreground">Nuestros Servicios</h2>
           <p className="mt-4 text-muted-foreground font-body max-w-2xl mx-auto">
-            Soluciones de transporte adaptadas a tus necesidades
+            Soluciones integrales para tu motocicleta y proyectos metalmecánicos
           </p>
         </motion.div>
 
@@ -67,31 +68,31 @@ const ServiceToggle = () => {
           className="flex justify-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
         >
           <div className="toggle-switch">
             <motion.div
               className="toggle-indicator"
               animate={{
-                x: activeTab === 'hogar' ? 0 : '100%',
-                width: activeTab === 'hogar' ? '50%' : '50%',
+                x: activeTab === 'mecanica' ? 0 : '100%',
+                width: activeTab === 'mecanica' ? '50%' : '50%',
               }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             />
             <button
-              className={`toggle-option ${activeTab === 'hogar' ? 'active' : ''}`}
-              onClick={() => setActiveTab('hogar')}
+              className={`toggle-option ${activeTab === 'mecanica' ? 'active' : ''}`}
+              onClick={() => setActiveTab('mecanica')}
             >
-              <Home className="inline-block w-5 h-5 mr-2" />
-              Hogar
+              <Wrench className="inline-block w-5 h-5 mr-2" />
+              Mecánica
             </button>
             <button
-              className={`toggle-option ${activeTab === 'empresas' ? 'active' : ''}`}
-              onClick={() => setActiveTab('empresas')}
+              className={`toggle-option ${activeTab === 'torneria' ? 'active' : ''}`}
+              onClick={() => setActiveTab('torneria')}
             >
-              <Building2 className="inline-block w-5 h-5 mr-2" />
-              Empresas
+              <Settings className="inline-block w-5 h-5 mr-2" />
+              Tornería
             </button>
           </div>
         </motion.div>
@@ -110,7 +111,7 @@ const ServiceToggle = () => {
             >
               <img
                 src={currentImage}
-                alt={activeTab === 'hogar' ? 'Mudanzas residenciales' : 'Logística empresarial'}
+                alt={activeTab === 'mecanica' ? 'Taller de motos' : 'Taller de torno'}
                 className="w-full h-full object-cover img-grayscale hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 border-4 border-primary pointer-events-none" />
@@ -153,13 +154,14 @@ const ServiceToggle = () => {
               ))}
 
               <motion.a
-                href={activeTab === 'hogar' ? '/hogar' : '/empresas'}
+                href={activeTab === 'mecanica' ? '/mecanica' : '/torneria'}
                 className="btn-outline inline-flex mt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
                 Ver más detalles
+                <ChevronRight className="w-4 h-4 ml-2" />
               </motion.a>
             </motion.div>
           </AnimatePresence>

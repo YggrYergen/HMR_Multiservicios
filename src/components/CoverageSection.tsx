@@ -2,27 +2,20 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const cities = [
-  { name: 'Arica', x: 48, y: 3 },
-  { name: 'Iquique', x: 47, y: 8 },
-  { name: 'Antofagasta', x: 48, y: 14 },
-  { name: 'Copiapó', x: 46, y: 20 },
-  { name: 'La Serena', x: 45, y: 26 },
   { name: 'Valparaíso', x: 42, y: 34 },
-  { name: 'Santiago', x: 48, y: 37 },
-  { name: 'Rancagua', x: 50, y: 41 },
-  { name: 'Talca', x: 47, y: 48 },
-  { name: 'Concepción', x: 44, y: 56 },
-  { name: 'Temuco', x: 45, y: 64 },
-  { name: 'Valdivia', x: 43, y: 70 },
-  { name: 'Puerto Montt', x: 44, y: 76 },
-  { name: 'Chiloé', x: 40, y: 82 },
+  { name: 'Viña del Mar', x: 42, y: 32 },
+  { name: 'Quilpué', x: 44, y: 33 },
+  { name: 'Villa Alemana', x: 45, y: 33 },
+  { name: 'Concón', x: 42, y: 30 },
+  { name: 'Limache', x: 46, y: 31 },
+  { name: 'Quillota', x: 46, y: 28 },
 ];
 
 const CoverageSection = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const isInView = useInView(sectionRef, { once: false, margin: '-100px' });
   const [typedText, setTypedText] = useState('');
-  const fullText = 'Llegamos donde tú estás';
+  const fullText = 'Región de Valparaíso';
 
   useEffect(() => {
     if (isInView) {
@@ -36,6 +29,8 @@ const CoverageSection = () => {
         }
       }, 80);
       return () => clearInterval(interval);
+    } else {
+      setTypedText(''); // Reset on exit
     }
   }, [isInView]);
 
@@ -47,7 +42,7 @@ const CoverageSection = () => {
           <motion.div
             className="relative"
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.8 }}
           >
             <svg
@@ -55,39 +50,17 @@ const CoverageSection = () => {
               className="w-full max-w-md mx-auto"
               style={{ filter: 'drop-shadow(0 4px 20px rgba(0,0,0,0.1))' }}
             >
-              {/* Chile simplified outline - Arica to Chiloé */}
+              {/* Simplified Region Outline (Abstract) */}
               <motion.path
-                d="M48 2 Q50 8 48 15 Q46 25 48 35 Q45 45 48 55 Q46 65 48 75 Q45 82 42 88"
+                d="M40 20 Q45 20 48 25 Q50 30 48 35 Q46 40 42 45 Q38 40 38 35 Z"
+                transform="scale(2) translate(-10, -5)"
                 fill="none"
                 stroke="hsl(var(--secondary))"
-                strokeWidth="8"
+                strokeWidth="2"
                 strokeLinecap="round"
                 initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
                 transition={{ duration: 2, delay: 0.3 }}
-              />
-
-              {/* Route line - Norte */}
-              <motion.path
-                d="M48 37 Q47 25 48 3"
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-                strokeDasharray="4 2"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 1.5, delay: 1.5 }}
-              />
-              {/* Route line - Sur */}
-              <motion.path
-                d="M48 37 Q46 55 44 76 Q42 80 40 82"
-                fill="none"
-                stroke="hsl(var(--primary))"
-                strokeWidth="2"
-                strokeDasharray="4 2"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 1.5, delay: 1.5 }}
               />
 
               {/* City pins */}
@@ -95,8 +68,8 @@ const CoverageSection = () => {
                 <motion.g
                   key={city.name}
                   initial={{ scale: 0, opacity: 0 }}
-                  animate={isInView ? { scale: 1, opacity: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 2 + index * 0.15 }}
+                  animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 1 + index * 0.15 }}
                 >
                   <circle
                     cx={city.x}
@@ -130,16 +103,16 @@ const CoverageSection = () => {
             <motion.h2
               className="text-display text-foreground"
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6 }}
             >
-              Cobertura Nacional
+              Cobertura Regional
             </motion.h2>
 
             <motion.div
               className="mt-6 h-16"
               initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.8 }}
             >
               <p className="text-2xl md:text-3xl font-heading text-primary uppercase">
@@ -151,22 +124,21 @@ const CoverageSection = () => {
             <motion.p
               className="mt-6 text-muted-foreground font-body text-lg max-w-md mx-auto lg:mx-0"
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Desde Arica hasta Puerto Montt y Chiloé, cubrimos prácticamente 
-              todo Chile. Nuestra flota está lista para transportar tus 
-              pertenencias con seguridad y puntualidad.
+              Atendemos en las principales comunas de la V Región.
+              Si necesitas retiro y entrega de trabajos de tornería o mecánica mayor, contáctanos.
             </motion.p>
 
             <motion.a
               href="#cotizar"
               className="btn-primary inline-flex mt-8"
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Cotiza tu traslado
+              Consultar retiro
             </motion.a>
           </div>
         </div>

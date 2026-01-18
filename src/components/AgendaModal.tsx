@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Loader2 } from 'lucide-react';
-import logo from '@/assets/logo-mmovi.png';
+import logo from '@/assets/logo-hmr.png';
 
 interface AgendaModalProps {
   isOpen: boolean;
@@ -59,9 +59,8 @@ const AgendaModal = ({ isOpen, onClose }: AgendaModalProps) => {
             {/* Iframe */}
             <iframe
               src="https://mmovi.site.agendapro.com/cl/sucursal/11884"
-              className={`w-full h-full transition-opacity duration-300 ${
-                isLoading ? 'opacity-0' : 'opacity-100'
-              }`}
+              className={`w-full h-full transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'
+                }`}
               onLoad={handleIframeLoad}
               title="Agendar cita MMovi"
             />

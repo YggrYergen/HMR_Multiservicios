@@ -22,26 +22,26 @@ const CTASection = () => {
               className="text-display text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
-              ¿Listo para moverte?
+              ¿Tienes algún problema?
             </motion.h2>
 
             <motion.p
               className="mt-6 text-white/70 font-body text-lg"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: 0.1 }}
             >
-              Agenda tu fecha o llámanos directamente. Cotización sin compromiso.
+              Agenda tu visita al taller o consulta por repuestos y trabajos de torno.
             </motion.p>
 
             <motion.div
               className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: 0.2 }}
             >
               <button
@@ -49,7 +49,7 @@ const CTASection = () => {
                 className="btn-primary inline-flex"
               >
                 <Calendar className="w-5 h-5" />
-                Agendar Fecha
+                Agendar Visita
               </button>
               <a href="tel:+56963506070" className="btn-white inline-flex">
                 <Phone className="w-5 h-5" />
@@ -61,10 +61,10 @@ const CTASection = () => {
               className="mt-8 text-white/50 text-sm font-body"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: 0.4 }}
             >
-              Respuesta en menos de 2 horas · Sin costos ocultos · Garantía de satisfacción
+              Diagnóstico profesional · Tornería de precisión · Repuestos garantizados
             </motion.p>
           </div>
         </div>

@@ -1,17 +1,24 @@
 import { motion } from 'framer-motion';
 import heroImage from '@/assets/hero-truck.jpg';
+import heroVideo from '@/assets/fondo_hero_inicio.mp4';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Grayscale */}
+      {/* Background Video with Grayscale */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/70 via-accent/50 to-accent/80 z-10" />
-        <img
-          src={heroImage}
-          alt="Camión MMovi en carretera"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover img-grayscale in-view"
-        />
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback image if video fails or is missing */}
+          <img src={heroImage} alt="HMR Taller" className="w-full h-full object-cover" />
+        </video>
         {/* Noise texture overlay */}
         <div className="absolute inset-0 noise-texture" />
       </div>
@@ -22,17 +29,19 @@ const HeroSection = () => {
           <motion.h1
             className="text-hero text-white"
             initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="block">Nosotros nos</span>
-            <span className="block">movemos</span>
+            <span className="block">Nosotros</span>
+            <span className="block">lo arreglamos</span>
           </motion.h1>
-          
+
           <motion.div
             className="mt-4"
             initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="tag-red text-4xl md:text-6xl lg:text-7xl">
@@ -43,24 +52,26 @@ const HeroSection = () => {
           <motion.p
             className="mt-8 text-lg md:text-xl text-white/80 max-w-xl font-body"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Mudanzas residenciales y logística empresarial con la mejor calidad
-            y seguridad de Chile.
+            Servicio técnico especializado en motocicletas y tornería de precisión.
+            Calidad, rapidez y garantía en cada trabajo.
           </motion.p>
 
           <motion.div
             className="mt-10 flex flex-wrap gap-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.7 }}
           >
             <a href="#servicios" className="btn-primary">
               Ver Servicios
             </a>
             <a href="#cotizar" className="btn-white">
-              Cotizar Ahora
+              Agendar Hora
             </a>
           </motion.div>
         </div>
@@ -70,7 +81,8 @@ const HeroSection = () => {
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
+        whileInView={{ opacity: 1, y: [0, 10, 0] }}
+        viewport={{ once: false }}
         transition={{ opacity: { delay: 1.5 }, y: { repeat: Infinity, duration: 1.5 } }}
       >
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
