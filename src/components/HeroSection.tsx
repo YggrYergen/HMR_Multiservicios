@@ -13,7 +13,7 @@ const HeroSection = () => {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover img-grayscale in-view"
+          className="w-full h-full object-cover in-view"
         >
           <source src={heroVideo} type="video/mp4" />
           {/* Fallback image if video fails or is missing */}
