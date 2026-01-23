@@ -6,6 +6,9 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import AgendaModal from '@/components/AgendaModal';
 import motoImage from '@/assets/taller-1.jpg';
+import workshopImg1 from '@/assets/workshop-general-1.jpg';
+import workshopImg2 from '@/assets/workshop-tools-1.jpg';
+import workshopImg3 from '@/assets/workshop-tools-2.jpg';
 
 const services = [
     {
@@ -142,6 +145,43 @@ const MecanicaPage = () => {
                                             </p>
                                         </div>
                                     </motion.div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Gallery Section */}
+                <section className="py-24 bg-accent/5">
+                    <div className="container">
+                        <motion.div
+                            className="text-center mb-16"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                        >
+                            <h2 className="text-display text-foreground">Nuestro Taller</h2>
+                            <p className="mt-4 text-muted-foreground font-body">Espacios equipados para un servicio de primer nivel</p>
+                        </motion.div>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {[motoImage, workshopImg1, workshopImg2, workshopImg3].map((img, index) => (
+                                <motion.div
+                                    key={index}
+                                    className="relative aspect-square overflow-hidden rounded-lg group"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    viewport={{ once: false }}
+                                >
+                                    <img
+                                        src={img}
+                                        alt={`Taller HMR ${index + 1}`}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <Wrench className="text-white w-8 h-8" />
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>

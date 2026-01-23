@@ -8,7 +8,7 @@ import exterior1 from '@/assets/exterior-1.jpg';
 import exterior2 from '@/assets/exterior-2.jpg';
 import taller1 from '@/assets/taller-1.jpg';
 import torno1 from '@/assets/torno-1.jpg';
-import enderezadora from '@/assets/enderezadora-neumaticos.jpg';
+import enderezadora from '@/assets/rim-repair-3.jpg';
 
 const sliderImages = [exterior1, exterior2, taller1, torno1, enderezadora, exterior1]; // Placeholder
 
