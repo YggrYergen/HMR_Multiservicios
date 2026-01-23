@@ -16,7 +16,7 @@ const WhatsAppButton = () => {
 
   return (
     <motion.a
-      href="https://wa.me/56963506070?text=Hola,%20quiero%20cotizar%20una%20mudanza"
+      href="https://wa.me/56975598794?text=Hola,%20quiero%20cotizar"
       target="_blank"
       rel="noopener noreferrer"
       className={`whatsapp-float ${shouldVibrate ? 'animate-vibrate' : ''}`}

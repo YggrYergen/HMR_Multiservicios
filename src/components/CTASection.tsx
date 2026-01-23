@@ -51,7 +51,7 @@ const CTASection = () => {
                 <Calendar className="w-5 h-5" />
                 Agendar Visita
               </button>
-              <a href="tel:+56963506070" className="btn-white inline-flex">
+              <a href="tel:+56975598794" className="btn-white inline-flex">
                 <Phone className="w-5 h-5" />
                 Llamar Ahora
               </a>

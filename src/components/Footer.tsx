@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Phone, Mail } from 'lucide-react';
+import { Instagram, Facebook, Phone, Mail, MapPin } from 'lucide-react';
 import logo from '@/assets/logo-hmr.png';
 import { Link } from 'react-router-dom';
 
@@ -78,11 +78,20 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+56963506070"
+                href="tel:+56975598794"
                 className="flex items-center gap-3 text-white/80 hover:text-white transition-colors font-body"
               >
                 <Phone className="w-5 h-5" />
-                +56 9 6350 6070
+                +56 9 7559 8794
+              </a>
+              <a
+                href="https://maps.app.goo.gl/C4xzQ3sbhmNwULkKA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors font-body"
+              >
+                <MapPin className="w-5 h-5" />
+                Ver Ubicación
               </a>
               <a
                 href="mailto:contacto@hmrmultiservicios.cl"
